@@ -1,0 +1,111 @@
+/* Flex container for horizontal layout */
+.container {
+    display: flex;
+    justify-content: flex-start; /* Align items at the start */
+    align-items: center;
+    margin: 100px 0;
+    overflow-x: auto; /* Allow horizontal scrolling */
+    padding: 0 20px; /* Optional padding to add space around the content */
+    white-space: nowrap; /* Ensure horizontal layout stays on one line */
+}
+
+/* Add margin to create space between images */
+.receipt-container {
+    position: relative;
+    margin-right: 400px; /* Increase margin to add more horizontal gap */
+    margin-bottom: 20px; /* Space below each receipt */
+    flex-shrink: 0; /* Prevent shrinking of the container */
+}
+
+/* Ensure images fit within the page without overflowing */
+img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+}
+
+/* Different sizes for the images */
+.receipt-container:nth-child(1) img {
+    max-width: 100px;
+    animation-delay: 0.5s;
+}
+
+.receipt-container:nth-child(2) img {
+    max-width: 200px;
+    animation-delay: 1s;
+}
+
+.receipt-container:nth-child(3) img {
+    max-width: 175px;
+    animation-delay: 1.5s;
+}
+
+/* Specifically target the 4th receipt */
+.receipt-container:nth-child(4) img {
+    max-width: 150px; /* Adjust the size of the 4th receipt */
+    animation-delay: 2s; /* Delay for fade-in effect */
+}
+
+/* Body container to prevent overflow */
+body {
+    font-family: 'Courier New', monospace;
+    margin: 0;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: #f7f7f7;
+    overflow-x: hidden; /* Prevent the body from scrolling horizontally */
+}
+
+/* Line drawing animation */
+@keyframes drawLine {
+    from { width: 0; }
+    to { width: 100px; }
+}
+
+/* Line that appears next to each image */
+.line {
+    position: absolute;
+    left: calc(100% + 20px);
+    top: 5px;
+    height: 2px;
+    background-color: black;
+    width: 0;
+    transition: width 1s ease-in-out;
+}
+
+/* Typing effect on text */
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+.text {
+    position: absolute;
+    left: calc(100% + 30px);
+    top: 20px;
+    font-size: 12px;
+    opacity: 0;
+    overflow: hidden; /* Hide overflow */
+    white-space: normal; /* Allow text to wrap */
+    max-width: 300px; /* Limit the width of the text container */
+    border-right: 2px solid black; /* Cursor effect */
+}
+
+/* Hover effect to trigger the line and text */
+.receipt-container:hover .line {
+    animation: drawLine 1s forwards;
+}
+
+.receipt-container:hover .text {
+    opacity: 1;
+    animation: typing 2s steps(20) forwards; /* Adjust steps based on your text length */
+    transition-delay: 1s; /* Appear after the line animation */
+}
+
+/* Fade-in animation for images */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="sight.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sight Page</title>
+    <style>
+        /* Fade-in animation for images */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Line drawing animation */
+        @keyframes drawLine {
+            from { width: 0; }
+            to { width: 100px; } /* Length of the line */
+        }
+
+        /* Typing effect animation for the text */
+        @keyframes typing {
+            from { width: 0; } /* Text initially hidden */
+            to { width: 100%; } /* Text will appear letter by letter */
+        }
+
+        /* Container styles */
+        body {
+            font-family: 'Courier New', monospace; /* Monospace font for typing effect */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0px; /* Padding to prevent content from touching edges */
+            box-sizing: border-box; /* Ensure padding is part of the width */
+        }
+
+        /* Flex container for horizontal layout */
+        .container {
+            display: flex;
+            justify-content: space-around; /* Distribute the space between items */
+            align-items: center;
+            margin: 20px 0; /* Space around the container */
+        }
+
+        /* Add margin to create space between images */
+        .receipt-container {
+            position: relative; /* Enables positioning for absolute children */
+            margin-right: 300px; /* Increase this to create a larger horizontal gap */
+        }
+
+        /* Ensure images fit within the page without overflowing */
+        img {
+            width: 100%;
+            max-width: 10px; /* Adjust the max-width based on your preferences */
+            height: auto;
+            opacity: 0;
+            animation: fadeIn 2s forwards;
+        }
+
+        /* Different sizes for the images */
+        .receipt-container:nth-child(1) img {
+            max-width: 150px; /* Smaller image */
+            animation-delay: 0.5s;
+        }
+
+        .receipt-container:nth-child(2) img {
+            max-width: 150px; /* Medium image */
+            animation-delay: 1s;
+        }
+
+        .receipt-container:nth-child(3) img {
+            max-width: 150px; /* Largest image */
+            animation-delay: 1.5s;
+        }
+
+        /* Line that appears next to each image */
+        .line {
+            position: absolute;
+            left: calc(100% + 20px); /* Position the line next to the image */
+            top: 20px;
+            height: 2px;
+            background-color: black;
+            width: 0; /* Initial width */
+            transition: width 1s ease-in-out;
+        }
+
+        /* Typing effect on text */
+        .text {
+            position: absolute;
+            left: calc(100% + 130px); /* Adjust position next to the line */
+            top: 20px;
+            font-size: 10px;
+            opacity: 0; /* Initially hidden */
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 2px solid black; /* Cursor effect */
+            transition: opacity 0.5s ease; /* Smooth opacity transition */
+            width: 250px; 
+        }
+
+        /* Hover effect to trigger the line and text */
+        .receipt-container:hover .line {
+            animation: drawLine 1s forwards;
+        }
+
+        .receipt-container:hover .text {
+            opacity: 1; /* Make text visible */
+            animation: typing 2s steps(80) forwards;
+            transition-delay: 1s; /* Appear after the line animation */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- First receipt -->
+        <div class="receipt-container">
+            <img src="images/teso.jpg" alt="Receipt 1">
+            <div class="line"></div>
+            <div class="text">Receipt #1
+                <br>Emotion: Intrigued. 
+                <br>Date: November 30th, 2024.
+                <br>Location: 1265 Broadway,
+                <br> New York, NY 10001
+                <br>Items bought: 2
+            </div>
+        </div>
+
+        <!-- Second receipt -->
+        <div class="receipt-container">
+            <img src="images/crossroads.jpg" alt="Receipt 2">
+            <div class="line"></div>
+            <div class="text">Receipt #2
+                <br>Emotion: Happy. 
+                <br>Date: November 27th, 2024.
+                <br>Location:47 W 13th St, 
+                <br> New York, NY 10011
+                <br>Items bought: 2
+            </div>
+        </div>
+
+        <!-- Third receipt -->
+        <div class="receipt-container">
+            <img src="images/fivebelow.jpg" alt="Receipt 3">
+            <div class="line"></div>
+            <div class="text">Receipt #3
+                <br>Emotion: None 
+                <br>Date: November 29th, 2024.
+                <br>Location: 40 E 14th St, 
+                <br> Manhattan, NY 10003
+                <br>Items bought: 3
+            </div>
+        </div>
+    </div>
+</body>
+</html>

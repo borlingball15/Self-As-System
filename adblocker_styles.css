@@ -1,0 +1,22 @@
+body {
+    margin: 0; /* Remove default margin */
+    background-color: black; /* Set background color to black */
+    color: white; /* Set default text color to white for visibility */
+}
+
+
+#shape-container {
+    position: relative; /* Allow absolutely positioned children */
+    width: 100vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+    overflow: hidden; /* Hide any overflow */
+}
+
+img {
+    display: block; /* Ensure images behave as block elements */
+    border-radius: 5px; /* Optional: add rounded corners to images */
+}
+
+div {
+    border-radius: 5px; /* Optional: add rounded corners to rectangles */
+}

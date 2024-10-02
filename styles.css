@@ -1,0 +1,96 @@
+/* body {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    display: flex; 
+    flex-direction: column; 
+    align-items: center;
+    gap: 20px; 
+}
+
+.eyes {
+    display: flex;
+    justify-content: space-between;
+    width: 700px;  
+    margin-bottom: -100px;
+}
+
+#left-eye, #right-eye {
+    width: 300px;  
+    height: auto;  
+}
+
+#nose {
+    width: 400px;  
+    height: auto;  
+    transform: translateX(150px) translateY(10px);
+}
+
+#mouth {
+    width: 350px;  
+    height: auto;  
+    transform: translateX(170px) translateY(-50px);
+} 
+*/
+
+body {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    display: flex; /* Use flexbox for vertical alignment */
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center items */
+    gap: 20px; /* Space between elements */
+}
+
+.eyes {
+    display: flex;
+    justify-content: space-between;
+    width: 700px;  /* Adjust width for spacing between eyes */
+    margin-bottom: -200px; /* Add space below the eyes */
+}
+
+#left-eye, #right-eye {
+    width: 300px;  /* Adjust this value to make eyes slightly bigger */
+    height: auto;  /* Maintain aspect ratio */
+}
+
+#nose {
+    width: 400px;  /* Increase this value to make the nose bigger */
+    height: auto;  /* Maintain aspect ratio */
+    transform: translateX(10px) translateY(80px); /* Position the nose */
+}
+
+#mouth {
+    width: 350px;  /* Increase mouth size */
+    height: auto;  /* Maintain aspect ratio */
+    transform: translateX(10px) translateY(-20px);  /* Move mouth up */
+}
+
+.purchase-link {
+    font-family: 'Times New Roman', Times, serif; /* Font family */
+    font-size: 30px; /* Font size */
+    color: darkblue; /* Text color */
+    text-decoration: underline; /* Underline text */
+    margin-top: 20px; /* Space above the link */
+    transform: translateX(10px) translateY(-100px); /* Adjust position above */
+    transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition for color and transform */
+}
+
+.purchase-link:hover {
+    color: #6495ED; /* Light blue color on hover */
+    transform: translateY(-100px) scale(1.1); /* Move up and slightly enlarge text on hover */
+}
+
